@@ -6,8 +6,18 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "@clerk/clerk-expo";
 import { useEffect } from "react";
 import { getFavoriteChannels } from "../../api/user/channels";
+import { useNetInfo } from "@react-native-community/netinfo";
+import { ErrorPage } from "../../pages/error-page";
 
 export function Routes() {
+
+  const netInfo = useNetInfo();
+
+  if (!netInfo) {
+    return (
+      <ErrorPage />
+    )
+  }
 
   const Stack = createNativeStackNavigator();
   const { isSignedIn, isLoaded } = useAuth();
@@ -16,9 +26,12 @@ export function Routes() {
 
   if (!isSignedIn) return <HomePage />;
 
+
+
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
+      <Stack.Navigator initialRouteName="channel">
         <Stack.Screen
           name="channel"
           component={ChannelsPage}
