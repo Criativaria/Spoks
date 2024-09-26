@@ -20,7 +20,7 @@ const lightTheme: ThemeData = {
     font_regular: "Inter_Regular",
 }
 
-export const themes = { //onde ficam armazenados todos os temas
+export const themes = {
     light: lightTheme,
 };
 
