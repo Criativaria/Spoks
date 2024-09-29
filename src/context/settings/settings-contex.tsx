@@ -49,8 +49,6 @@ export function SettingsProvider(prop: SettingsProviderProps) {
             {prop.children}
         </settingsContext.Provider>
     )
-
-
 }
 
 export function useSettingsContext() {

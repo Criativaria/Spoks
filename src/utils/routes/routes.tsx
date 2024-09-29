@@ -4,7 +4,8 @@ import { ProgramsPage } from "../../pages/program-page";
 import { HomePage } from "../../pages/home-page";
 import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "@clerk/clerk-expo";
-import { ConfigPage } from "../../pages/config-page";
+import ConfigPage from "../../pages/config-page";
+
 
 export function Routes() {
 
@@ -19,7 +20,7 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="channel">
+      <Stack.Navigator initialRouteName="config">
         <Stack.Screen
           name="channel"
           component={ChannelsPage}

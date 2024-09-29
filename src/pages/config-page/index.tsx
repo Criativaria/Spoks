@@ -1,33 +1,34 @@
 import { Text, View } from "react-native";
-import Slider from '@react-native-community/slider';
+import { FontSizeSlider } from "../../components/font-size-slider";
+import { PageTitle } from "../../components/page-tittle";
+import Button from "../../components/button";
 import { useThemeContext } from "../../context/theme/hooks/use-theme-context";
-import { useContext, useState } from "react";
-import { FontSizeContext } from "../../context/font-size/font-size.context";
 
-export function ConfigPage() {
-    const fontSizeContext = useContext(FontSizeContext);
+export default function ConfigPage() {
     const { theme } = useThemeContext();
-
-    if (!fontSizeContext) {
-        throw new Error("deu tudo errado aqui")
-    }
-
-    const { fontSize, setFontSize } = fontSizeContext;
-
     return (
-        <View style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <Slider
-                style={{ width: 300, height: 40 }}
-                minimumValue={16}
-                maximumValue={40}
-                minimumTrackTintColor={theme.primary}
-                maximumTrackTintColor={theme.black}
-                value={fontSize}
-                thumbTintColor={theme.primary}
-                step={1}
-                onValueChange={setFontSize}
+        <View>
+            <Text>Configurações</Text>
+
+            <FontSizeSlider />
+
+            <Text>Modo</Text>
+
+            <Button text="ativar modo escuro"
+                textStyle={{ color: theme.white }} />
+
+            <Button text="ativar modo de alto contraste"
+                textStyle={{ color: theme.white }}
             />
-        </View >
+
+            <Button text="configurar depois" />
+
+            <Button text="deslogar" />
+
+            <Text>clique para usar o aplicativo</Text>
+
+            <Button text="proximo" />
+        </View>
 
     )
 
