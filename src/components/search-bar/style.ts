@@ -11,7 +11,7 @@ export const makeStyle = CreateStyle((theme) => ({
     },
     searchBar: {
         width: 250,
-        fontSize: 12,
+        fontSize: theme.fontSize * 12,
         fontFamily: theme.font_regular,
         backgroundColor: theme.light_primary
     }
