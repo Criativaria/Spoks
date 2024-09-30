@@ -21,7 +21,7 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="config">
+      <Stack.Navigator initialRouteName="channel">
         <Stack.Screen
           name="channel"
           component={ChannelsPage}
