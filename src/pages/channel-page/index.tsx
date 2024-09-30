@@ -2,16 +2,17 @@ import { FlatList, Pressable, View } from "react-native";
 import { ItemList } from "../../components/item-list";
 import { PageTitle } from "../../components/page-tittle";
 import { useChannel } from "./use-channel";
-import { makeStyle } from "./style";
 import { SearchBar } from "../../components/search-bar";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Settings } from "lucide-react-native";
+import { makeStyle } from "./style";
+import { Footer } from "../../components/footer";
 
 export function ChannelsPage() {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const style = makeStyle();
+  const style = makeStyle()
 
   const {
     searchFilter,
@@ -33,7 +34,7 @@ export function ChannelsPage() {
       </Pressable>
 
       <PageTitle
-        arrow={false}
+        settings={false}
         heart={true}
         title={showFavorites ? "Canais Favoritos" : "Canais"}
         onFavoritesClick={() => toggleFavorites()}
@@ -59,6 +60,7 @@ export function ChannelsPage() {
           )}
         />
       </View>
-    </SafeAreaView>
+      <Footer />
+    </SafeAreaView >
   );
 }
