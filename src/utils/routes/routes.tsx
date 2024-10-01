@@ -6,18 +6,12 @@ import { useAuth } from "@clerk/clerk-expo";
 import ConfigPage from "../../pages/config-page";
 import { HomePage } from "../../pages/home-page";
 
-
-
 export function Routes() {
 
   const Stack = createNativeStackNavigator();
   const { isSignedIn, isLoaded } = useAuth();
 
   if (!isLoaded) return;
-
-  // if (!isSignedIn) return <HomePage />;
-
-
 
   return (
     <NavigationContainer>

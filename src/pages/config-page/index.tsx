@@ -1,6 +1,5 @@
 import { Text, View } from "react-native";
 import { FontSizeSlider } from "../../components/font-size-slider";
-import { PageTitle } from "../../components/page-tittle";
 import Button from "../../components/button";
 import { useThemeContext } from "../../context/theme/hooks/use-theme-context";
 import { useClerk } from "@clerk/clerk-expo";

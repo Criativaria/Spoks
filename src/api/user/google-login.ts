@@ -1,8 +1,7 @@
 
 import * as WebBrowser from "expo-web-browser";
 import { useEffect, useState } from "react";
-import { useOAuth } from "@clerk/clerk-expo";  // useSignIn adicionado
-import * as Linking from "expo-linking"
+import { useOAuth } from "@clerk/clerk-expo";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 WebBrowser.maybeCompleteAuthSession();
