@@ -1,15 +1,17 @@
 
 import * as WebBrowser from "expo-web-browser";
 import { useEffect, useState } from "react";
-import { useOAuth, useSignIn } from "@clerk/clerk-expo";  // useSignIn adicionado
-
+import { useOAuth } from "@clerk/clerk-expo";  // useSignIn adicionado
+import * as Linking from "expo-linking"
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 WebBrowser.maybeCompleteAuthSession();
 
 export function GoogleLogin() {
 
     const [isLoadingLogin, setIsLoadingLogin] = useState(false);
     const googleOAuth = useOAuth({ strategy: "oauth_google" });
-    const { signIn } = useSignIn();
+    const navigation = useNavigation<StackNavigationProp<any>>();
 
     useEffect(() => {
         WebBrowser.warmUpAsync();
@@ -21,22 +23,16 @@ export function GoogleLogin() {
     const OnGoogleSignInAsync = async () => {
         try {
             setIsLoadingLogin(true);
-            const oAuthFlow = await googleOAuth.startOAuthFlow();
+            const { createdSessionId, setActive, authSessionResult } = await googleOAuth.startOAuthFlow();
 
-            if (oAuthFlow.authSessionResult?.type === "success") {
+            if (authSessionResult?.type === "success" && createdSessionId) {
 
-                if (oAuthFlow.setActive && signIn) {
-                    const { createdSessionId } = await signIn.create({
-                        strategy: "oauth_google",
-                        redirectUrl: "spoks://channel"
-                    });
-
-
-                    await oAuthFlow.setActive({ session: createdSessionId });
-                }
+                await setActive!({ session: createdSessionId });
+                navigation.reset({ index: 0, routes: [{ name: "channel" }] });
             }
         } catch (error) {
-            console.error(error);
+            console.error((error as any).toString());
+        } finally {
             setIsLoadingLogin(false);
         }
     }

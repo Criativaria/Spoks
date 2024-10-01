@@ -21,7 +21,7 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="channel">
+      <Stack.Navigator initialRouteName={isSignedIn ? "channel" : "home"}>
         <Stack.Screen
           name="channel"
           component={ChannelsPage}

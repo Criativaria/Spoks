@@ -3,9 +3,15 @@ import { FontSizeSlider } from "../../components/font-size-slider";
 import { PageTitle } from "../../components/page-tittle";
 import Button from "../../components/button";
 import { useThemeContext } from "../../context/theme/hooks/use-theme-context";
+import { useClerk } from "@clerk/clerk-expo";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 export default function ConfigPage() {
+
     const { theme } = useThemeContext();
+    const { signOut } = useClerk();
+    const navigation = useNavigation<StackNavigationProp<any>>();
     return (
         <View>
             <Text>Configurações</Text>
@@ -23,7 +29,10 @@ export default function ConfigPage() {
 
             <Button text="configurar depois" />
 
-            <Button text="deslogar" />
+            <Button text="deslogar" onPress={() => {
+                signOut()
+                navigation.reset({ index: 0, routes: [{ name: "home" }] });
+            }} />
 
             <Text>clique para usar o aplicativo</Text>
 
