@@ -3,7 +3,6 @@ import { ChannelsPage } from "../../pages/channel-page";
 import { ProgramsPage } from "../../pages/program-page";
 import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "@clerk/clerk-expo";
-import { ErrorPage } from "../../pages/error-page";
 import ConfigPage from "../../pages/config-page";
 import { HomePage } from "../../pages/home-page";
 
@@ -18,6 +17,7 @@ export function Routes() {
   if (!isLoaded) return;
 
   // if (!isSignedIn) return <HomePage />;
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="channel">
