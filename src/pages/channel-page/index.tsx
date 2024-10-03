@@ -27,14 +27,8 @@ export function ChannelsPage() {
 
   return (
     <SafeAreaView>
-
-      {/* isso aqui é temporario, dpois vou passar para o page tittle. */}
-      <Pressable onPress={() => navigation.navigate("config")} >
-        <Settings color={"#000"} />
-      </Pressable>
-
       <PageTitle
-        settings={false}
+        settings={true}
         heart={true}
         title={showFavorites ? "Canais Favoritos" : "Canais"}
         onFavoritesClick={() => toggleFavorites()}
