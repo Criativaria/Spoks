@@ -11,15 +11,18 @@ export function SearchBar({ onChangeText, value }: SearchBarType) {
   const style = makeStyle();
   return (
     <View style={style.searchBarWrapper}>
-      <Search color="black" />
+      <Search color={style.searchBar.color} />
       <TextInput
         placeholder="procurar em canais"
         style={style.searchBar}
         onChangeText={onChangeText}
         value={value}
+        placeholderTextColor={style.searchBar.color}
       />
       <Pressable onPress={() => onChangeText("")}>
-        <X color="black" />
+        <View style={style.iconWrapper}>
+          <X color={style.icon.color} />
+        </View>
       </Pressable>
     </View>
   );

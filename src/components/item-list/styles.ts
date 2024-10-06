@@ -7,21 +7,26 @@ export const makeStyle = CreateStyle((theme) => ({
         justifyContent: "space-between",
         alignItems: "center",
         borderStyle: "solid",
-        borderBlockColor: theme.black,
+        borderBlockColor: theme.primary,
         borderBottomWidth: 1,
-        width: 300,
-        height: 50,
-        padding: 8,
-        marginBottom: 8
+        height: 100,
+        padding: 4,
+        backgroundColor: theme.light_grey,
     },
     tittle: {
-        fontSize: theme.fontSize * 16,
+        fontSize: theme.fontSize * 17,
         fontFamily: theme.font_bold,
-        letterSpacing: 1.2
+        letterSpacing: 1.2,
+        color: theme.text,
     },
     desc: {
-        fontSize: theme.fontSize * 12,
+        fontSize: theme.fontSize * 14,
         fontFamily: theme.font_regular,
-        letterSpacing: 1.2
+        letterSpacing: 1.2,
+        width: 260,
+        color: theme.text,
+    },
+    textWrapper: {
+        width: "80%",
     }
 }));

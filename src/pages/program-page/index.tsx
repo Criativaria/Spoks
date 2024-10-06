@@ -55,8 +55,8 @@ export function ProgramsPage() {
             )}
           />
         </View>
-        <Footer />
       </View>
+      <Footer />
     </SafeAreaView>
   );
 }

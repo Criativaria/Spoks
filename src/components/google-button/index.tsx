@@ -1,8 +1,5 @@
-import { ActivityIndicator, Pressable, Text } from "react-native";
+import { ActivityIndicator, Image, Pressable, Text } from "react-native";
 import { makeStyle } from "./style";
-import * as WebBrowser from "expo-web-browser";
-import { useEffect, useState } from "react";
-import { useOAuth } from "@clerk/clerk-expo";
 
 export type GoogleButtonType = {
   title: string;
@@ -26,7 +23,12 @@ export function GoogleButton({
       {isLoading ? (
         <ActivityIndicator size={"large"} color={"#E8E8E8"} />
       ) : (
-        <Text style={style.text}>{title}</Text>
+        <>
+          <Text style={style.text}>{title}</Text>
+          <Image style={style.image}
+            source={{ uri: 'https://t.ctcdn.com.br/lvns56iaSMyHvyTur4JeYS_NYeY=/i606944.png' }}
+          />
+        </>
       )}
     </Pressable>
   );
