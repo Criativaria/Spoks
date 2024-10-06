@@ -10,7 +10,7 @@ export function Footer() {
       <Text style={styles.footerText}>
         Gostaria de apoiar o projeto?{' '}
       </Text>
-      <TouchableOpacity onPress={() => { /* ação ao clicar */ }}>
+      <TouchableOpacity onPress={() => { }}>
         <Text style={styles.footerLink}>clique aqui</Text>
       </TouchableOpacity>
     </View>

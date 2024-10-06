@@ -11,9 +11,9 @@ export function FontSizeSlider() {
     const style = makeStyle();
 
     return (
-        <View>
-            <Text style={style.tittle} >Definir tamanho da fonte</Text>
-            <Text style={style.subTittle} >Arraste para ajustar o tamanho</Text>
+        <View style={style.container}>
+            <Text style={style.title} >Definir tamanho da fonte</Text>
+            <Text style={style.subTitle} >Arraste para ajustar o tamanho</Text>
             <Slider
                 style={{ width: 225, height: 40 }}
                 minimumValue={0.75}
@@ -25,7 +25,5 @@ export function FontSizeSlider() {
                 onValueChange={(value) => configs.setConfig("fontSize", value)}
             />
         </View >
-
     )
-
 }

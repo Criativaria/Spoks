@@ -1,35 +1,69 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { FontSizeSlider } from "../../components/font-size-slider";
 import { PageTitle } from "../../components/page-tittle";
 import Button from "../../components/button";
 import { useThemeContext } from "../../context/theme/hooks/use-theme-context";
+import { useSettingsContext } from "../../context/settings/settings-contex";
+import { ThemeNames } from "../../styles/theme";
+import { makeStyle } from "./style";
+import { Smartphone } from "lucide-react-native";
 
 export default function ConfigPage() {
     const { theme } = useThemeContext();
+    const { setConfig } = useSettingsContext();
+    const style = makeStyle();
     return (
-        <View>
-            <Text>Configurações</Text>
+        <ScrollView style={style.scroll}>
 
-            <FontSizeSlider />
+            <View style={style.container}>
+                <Text style={style.title}>Configurações</Text>
 
-            <Text>Modo</Text>
+                <FontSizeSlider />
 
-            <Button text="ativar modo escuro"
-                textStyle={{ color: theme.white }} />
+                <View style={style.modeRow}>
+                    <Smartphone style={style.icon} />
+                    <Text style={style.label}>Modo</Text>
+                </View>
 
-            <Button text="ativar modo de alto contraste"
-                textStyle={{ color: theme.white }}
-            />
+                <Button text="Modo Escuro"
+                    onPress={() => setConfig<ThemeNames>("theme", "dark")}
+                    textStyle={style.darkModeButtonText}
+                    wraperStyle={style.darkModeButton} />
 
-            <Button text="configurar depois" />
+                <Button text="Modo de Alto Contraste"
+                    onPress={() => setConfig<ThemeNames>("theme", "highContrast")}
+                    textStyle={style.highContrastButtonText}
+                    wraperStyle={style.highContrastButton}
+                />
 
-            <Button text="deslogar" />
+                <Button text="Modo Claro"
+                    onPress={() => setConfig<ThemeNames>("theme", "light")}
+                    textStyle={style.lightModeButtonText}
+                    wraperStyle={style.lightModeButton} />
 
-            <Text>clique para usar o aplicativo</Text>
+                <Button
+                    text="Configurar Depois"
+                    textStyle={style.buttonText}
+                    wraperStyle={style.button}
+                />
 
-            <Button text="proximo" />
-        </View>
+                <Button
+                    text="Deslogar"
+                    textStyle={style.buttonText}
+                    wraperStyle={style.button}
+                />
 
+                <View style={style.footer}>
+                    <Text style={style.footerText}>Clique para usar o aplicativo</Text>
+                    <View style={style.line} />
+
+                    <Button text="Próximo"
+                        textStyle={style.buttonText}
+                        wraperStyle={style.button}
+                    />
+                </View>
+            </View>
+        </ScrollView>
     )
 
 }

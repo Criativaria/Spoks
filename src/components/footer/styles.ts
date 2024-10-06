@@ -1,32 +1,29 @@
 import { CreateStyle } from "../../utils/create-style";
-import { Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
 
 export const makeStyle = CreateStyle((theme) => ({
   container: {
-    width: '100%',
-    backgroundColor: theme.backgroundColor,
-    paddingBottom: 80,
+    position: 'absolute',
+    backgroundColor: '#fff',
+    padding: 10,
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderColor: '#ccc',
   },
   footerContainer: {
-    backgroundColor: theme.black,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    backgroundColor: theme.background_footer,
     alignItems: "center",
     justifyContent: "center",
     borderTopLeftRadius: 100,
     borderTopRightRadius: 100,
-    left: 0,
-    right: 0,
-    marginBottom: -100,
-    borderTopColor: theme.ligth_grey,
-    height: 65,
-    width: width * 0.9999,
+    height: 70,
+    borderTopWidth: 2,
+    borderLeftWidth: 2,
+    borderRightWidth: 2,
+    borderColor: theme.border_footer,
   },
   footerText: {
-    color: theme.white,
-    fontSize: 16,
+    color: theme.footer_text,
+    fontSize: theme.fontSize * 16,
     textAlign: "center",
     fontFamily: theme.font_bold,
   },
@@ -34,7 +31,7 @@ export const makeStyle = CreateStyle((theme) => ({
     color: theme.light_primary,
     fontWeight: "bold",
     textDecorationLine: "underline",
-    fontSize: 17,
+    fontSize: theme.fontSize * 17,
     fontFamily: theme.font_bold,
   },
 }));

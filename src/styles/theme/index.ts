@@ -1,30 +1,99 @@
 export type ThemeData = {
-    backgroundColor: string,
-    white: string,
+    background_color: string,
+    text_white: string,
+    text: string,
     black: string,
+    footer_text: string,
+    background_footer: string,
+    border_footer: string,
+    border_color: string,
+    search_bar: string,
+    internet_button: string,
+    border_button_config: string,
     primary: string,
     light_primary: string,
-    ligth_grey: string
-    font_bold: string
-    font_regular: string
-}
+    dark_primary: string,
+    light_grey: string,
+    font_bold: string,
+    font_regular: string,
+    background_color_dark: string,
+    dark_mode_button_text: string;
+    high_contrast_button_text: string;
+};
 
 const lightTheme: ThemeData = {
-    backgroundColor: "#E8E8E8",
-    white: "#FFFFFF",
-    black: "#1B1A1A",
+    background_color: "#FFFFFF",
+    text_white: "#FFFFFF",
+    text: "#000000",
+    background_color_dark: "121212",
+    black: "#000000",
+    footer_text: "#FFFFFF",
+    background_footer: "#000000",
+    border_footer: "#FFFFFF",
+    border_color: "#000000",
+    search_bar: "E8E8E8",
+    internet_button: "#9747FF",
+    border_button_config: "#FFFFFF",
     light_primary: "#C382F5",
     primary: "#AA69FC",
-    ligth_grey: "#E8E8E8",
+    dark_primary: "#9747FF",
+    light_grey: "#E8E8E8",
     font_bold: "Inter_Extra_Bold",
     font_regular: "Inter_Regular",
-}
+    dark_mode_button_text: "#FFFFFF",
+    high_contrast_button_text: "#FFFF00",
+};
+
+const darkTheme: ThemeData = {
+    background_color: "#121212",
+    text_white: "#FFFFFF",
+    text: "#FFFFFF",
+    background_color_dark: "121212",
+    black: "#000000",
+    footer_text: "#FFFFFF",
+    background_footer: "#272727",
+    border_footer: "#121212",
+    border_color: "#FFFFFF",
+    search_bar: "E8E8E8",
+    internet_button: "#9747FF",
+    border_button_config: "#121212",
+    light_primary: "#AA69FC",
+    primary: "#BB86FC",
+    dark_primary: "#9747FF",
+    light_grey: "#272727",
+    font_bold: "Inter_Extra_Bold",
+    font_regular: "Inter_Regular",
+    dark_mode_button_text: "#FFFFFF",
+    high_contrast_button_text: "#FFFF00",
+};
+
+const highContrastTheme: ThemeData = {
+    background_color: "#000000",
+    text_white: "#FFFFFF",
+    text: "#FFFF00",
+    background_color_dark: "121212",
+    black: "#000000",
+    footer_text: "#FFFF00",
+    background_footer: "#000000",
+    border_footer: "#FFFFFF",
+    border_color: "#FFFFFF",
+    search_bar: "000000",
+    internet_button: "#FFFFFF",
+    border_button_config: "#FFFFFF",
+    light_primary: "#FFFFFF",
+    primary: "#FFFFFF",
+    dark_primary: "#00A0E3",
+    light_grey: "#000000",
+    font_bold: "Inter_Extra_Bold",
+    font_regular: "Inter_Regular",
+    dark_mode_button_text: "#FFFFFF",
+    high_contrast_button_text: "#FFFF00",
+};
 
 export const themes = {
     light: lightTheme,
+    dark: darkTheme,
+    highContrast: highContrastTheme,
 };
 
 export type ThemeNames = keyof typeof themes;
-
-
-
