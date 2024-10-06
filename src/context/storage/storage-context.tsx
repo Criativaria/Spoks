@@ -1,6 +1,8 @@
 import { createContext, useContext } from "react";
 import { IStorage } from "./adapter";
 import { useAsyncStorageAdapter } from "./adapters/async-storage-adapter";
+import { useAuth } from "@clerk/clerk-expo";
+import { useClerkStorageAdapter } from "./adapters/clerk-storage-adapter";
 
 type StorageContext = () => IStorage;
 
@@ -10,7 +12,9 @@ type StorageContextProp = {
 const storageContext = createContext<StorageContext | undefined>(undefined);
 
 export function StorageProvider(props: StorageContextProp) {
-    const storageAdapter = useAsyncStorageAdapter;
+    const { isSignedIn } = useAuth()
+    const storageAdapter = isSignedIn ? useClerkStorageAdapter : useAsyncStorageAdapter;
+
     return (
         <storageContext.Provider value={storageAdapter}>
             {props.children}
