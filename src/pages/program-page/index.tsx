@@ -32,7 +32,7 @@ export function ProgramsPage() {
     <SafeAreaView style={style.container}>
       <View style={style.content}>
         <PageTitle
-          settings={false}
+          settings={true}
           heart={true}
           title={showFavorites ? "Programas Favoritos" : "Programas"}
           onFavoritesClick={() => toggleFavorites()}
@@ -55,8 +55,8 @@ export function ProgramsPage() {
             )}
           />
         </View>
-        <Footer />
       </View>
+      <Footer />
     </SafeAreaView>
   );
 }

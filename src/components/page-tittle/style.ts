@@ -7,27 +7,27 @@ export const makeStyle = CreateStyle((theme) => ({
         flexDirection: "row",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: 95,
     },
     titleView: {
-        width: '100%',
+        width: '75%',
         alignItems: 'center',
-        borderBottomWidth: 1,
         borderBottomColor: theme.primary,
-        paddingBottom: 3,
-        marginBottom: 0,
+        paddingBottom: 8,
+        color: theme.text,
     },
     title: {
         fontFamily: theme.font_bold,
         fontSize: theme.fontSize * 30,
         textAlign: "center",
-        letterSpacing: 1.2
+        letterSpacing: 1.2,
+        color: theme.text,
     },
     iconShowUp: {
-        display: "flex"
+        display: "flex",
     },
     iconHide: {
-        display: "flex"
+        display: "flex",
+        alignContent: 'center',
     }
 
 }))

@@ -1,37 +1,31 @@
-import { PageTitle } from "../../components/page-tittle";
 import { CreateStyle } from "../../utils/create-style";
-import { Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
 
 export const makeStyle = CreateStyle((theme) => ({
     container: {
         flex: 1,
+        backgroundColor: theme.background_color,
+    },
+    search: {
+        backgroundColor: theme.search_bar,
+    },
+    content: {
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: 60,
-        width: '100%',
-        paddingHorizontal: 20,
-        marginVertical: 10,
     },
-
-    content: {
-        width: '100%',
-        alignItems: 'center',
-    },
-
     list: {
-        padding: 10,
-        backgroundColor: theme.backgroundColor,
-        overflow: 'hidden',
-        height: 600,
-        width: width * 0.9,
+        flex: 1,
+        padding: 5,
+        backgroundColor: theme.light_grey,
         marginVertical: 20,
-        borderBottomWidth: 1,
-        borderBottomColor: theme.black,
         borderWidth: 1,
-        borderColor: theme.black,
-        borderwidht: 2,
+        height: 600,
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: theme.border_color,
         borderRadius: 8,
+        overflow: 'hidden',
     },
+
 }));

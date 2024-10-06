@@ -26,39 +26,38 @@ export function ChannelsPage() {
   } = useChannel();
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={style.container}>
+      <View style={style.content}>
 
-      {/* isso aqui é temporario, dpois vou passar para o page tittle. */}
-      <Pressable onPress={() => navigation.navigate("config")} >
-        <Settings color={"#000"} />
-      </Pressable>
-
-      <PageTitle
-        settings={false}
-        heart={true}
-        title={showFavorites ? "Canais Favoritos" : "Canais"}
-        onFavoritesClick={() => toggleFavorites()}
-        isFavorites={showFavorites}
-      />
-
-      <SearchBar onChangeText={setSearchFilter} value={searchFilter} />
-
-      <View style={style.list}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={filterChannels()}
-          renderItem={({ item }) => (
-            <ItemList
-              onClick={() =>
-                navigation.push("program", { channelCode: item.code })
-              }
-              title={item.name}
-              desc={formatProgram(item.current_program)}
-              onFavorite={() => saveFavoriteChannel(item.code)}
-              isFavorite={isFavoriteChannel(item.code)}
-            />
-          )}
+        <PageTitle
+          settings={true}
+          heart={true}
+          title={showFavorites ? "Canais Favoritos" : "Canais"}
+          onFavoritesClick={() => toggleFavorites()}
+          isFavorites={showFavorites}
         />
+
+        <View style={style.search}>
+          <SearchBar onChangeText={setSearchFilter} value={searchFilter} />
+        </View>
+
+        <View style={style.list}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={filterChannels()}
+            renderItem={({ item }) => (
+              <ItemList
+                onClick={() =>
+                  navigation.push("program", { channelCode: item.code })
+                }
+                title={item.name}
+                desc={formatProgram(item.current_program)}
+                onFavorite={() => saveFavoriteChannel(item.code)}
+                isFavorite={isFavoriteChannel(item.code)}
+              />
+            )}
+          />
+        </View>
       </View>
       <Footer />
     </SafeAreaView >

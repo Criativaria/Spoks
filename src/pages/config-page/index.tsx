@@ -1,43 +1,74 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { FontSizeSlider } from "../../components/font-size-slider";
 import Button from "../../components/button";
-import { useThemeContext } from "../../context/theme/hooks/use-theme-context";
 import { useClerk } from "@clerk/clerk-expo";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { useSettingsContext } from "../../context/settings/settings-contex";
+import { ThemeNames } from "../../styles/theme";
+import { makeStyle } from "./style";
+import { Smartphone } from "lucide-react-native";
 
 export default function ConfigPage() {
-
-    const { theme } = useThemeContext();
     const { signOut } = useClerk();
     const navigation = useNavigation<StackNavigationProp<any>>();
+    const { setConfig } = useSettingsContext();
+    const style = makeStyle();
     return (
-        <View>
-            <Text>Configurações</Text>
+        <ScrollView style={style.scroll}>
 
-            <FontSizeSlider />
+            <View style={style.container}>
+                <Text style={style.title}>Configurações</Text>
 
-            <Text>Modo</Text>
+                <FontSizeSlider />
 
-            <Button text="ativar modo escuro"
-                textStyle={{ color: theme.white }} />
+                <View style={style.modeRow}>
+                    <Smartphone style={style.icon} />
+                    <Text style={style.label}>Modo</Text>
+                </View>
 
-            <Button text="ativar modo de alto contraste"
-                textStyle={{ color: theme.white }}
-            />
+                <Button text="Modo Escuro"
+                    onPress={() => setConfig<ThemeNames>("theme", "dark")}
+                    textStyle={style.darkModeButtonText}
+                    wraperStyle={style.darkModeButton} />
 
-            <Button text="configurar depois" />
+                <Button text="Modo de Alto Contraste"
+                    onPress={() => setConfig<ThemeNames>("theme", "highContrast")}
+                    textStyle={style.highContrastButtonText}
+                    wraperStyle={style.highContrastButton}
+                />
+                <Button text="Modo Claro"
+                    onPress={() => setConfig<ThemeNames>("theme", "light")}
+                    textStyle={style.lightModeButtonText}
+                    wraperStyle={style.lightModeButton} />
 
-            <Button text="deslogar" onPress={() => {
-                signOut()
-                navigation.reset({ index: 0, routes: [{ name: "home" }] });
-            }} />
+                <Button
+                    text="Configurar Depois"
+                    textStyle={style.buttonText}
+                    wraperStyle={style.button}
+                />
 
-            <Text>clique para usar o aplicativo</Text>
+                <Button
+                    text="Deslogar"
+                    textStyle={style.buttonText}
+                    wraperStyle={style.button}
+                    onPress={() => {
+                        signOut()
+                        navigation.reset({ index: 0, routes: [{ name: "home" }] });
+                    }}
+                />
 
-            <Button text="proximo" />
-        </View>
+                <View style={style.footer}>
+                    <Text style={style.footerText}>Clique para usar o aplicativo</Text>
+                    <View style={style.line} />
 
+                    <Button text="Próximo"
+                        textStyle={style.buttonText}
+                        wraperStyle={style.button}
+                    />
+                </View>
+            </View>
+        </ScrollView>
     )
 
 }

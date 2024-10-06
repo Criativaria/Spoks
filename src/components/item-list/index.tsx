@@ -26,28 +26,26 @@ export function ItemList({
   const style = makeStyle();
   const { theme } = useThemeContext();
 
-  const resumeText = ({ text, limit }: ResumeTextType) => {
-    return text.length > 25 ? text.slice(0, limit).concat("...") : text;
-  };
+
 
   return (
     <View style={style.wrapper}>
       <Pressable onPress={onClick}>
-        <View>
+        <View style={style.textWrapper}>
           <Text style={style.tittle}>
-            {resumeText({ text: title, limit: 25 })}
+            {title}
           </Text>
           <Text style={style.desc}>
-            {resumeText({ text: desc, limit: 35 })}
+            {desc}
           </Text>
         </View>
       </Pressable>
       <Pressable onPress={() => onFavorite()}>
         <Heart
-          color={isFavorite ? theme.primary : theme.black}
+          color={isFavorite ? theme.primary : theme.text}
           strokeWidth={2}
           size={21}
-          fill={isFavorite ? theme.primary : theme.ligth_grey}
+          fill={isFavorite ? theme.primary : theme.light_grey}
         />
       </Pressable>
     </View>

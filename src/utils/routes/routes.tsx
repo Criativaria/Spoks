@@ -8,6 +8,7 @@ import { HomePage } from "../../pages/home-page";
 
 export function Routes() {
 
+
   const Stack = createNativeStackNavigator();
   const { isSignedIn, isLoaded } = useAuth();
 
