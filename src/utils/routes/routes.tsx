@@ -5,8 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "@clerk/clerk-expo";
 import ConfigPage from "../../pages/config-page";
 import { HomePage } from "../../pages/home-page";
-
-
+import { ErrorPage } from "../../pages/error-page";
 
 export function Routes() {
 
@@ -16,11 +15,9 @@ export function Routes() {
 
   if (!isLoaded) return;
 
-  // if (!isSignedIn) return <HomePage />;
-
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="channel">
+      <Stack.Navigator initialRouteName={isSignedIn ? "channel" : "home"}>
         <Stack.Screen
           name="channel"
           component={ChannelsPage}
@@ -39,6 +36,11 @@ export function Routes() {
         <Stack.Screen
           name="home"
           component={HomePage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="error"
+          component={ErrorPage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

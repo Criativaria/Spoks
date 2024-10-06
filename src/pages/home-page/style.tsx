@@ -1,10 +1,87 @@
 import { CreateStyle } from "../../utils/create-style";
 
 export const makeStyle = CreateStyle((theme) => ({
-  wrapper: {
+  container: {
     flex: 1,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: theme.background_color,
+  },
+  innerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  title: {
+    fontFamily: theme.font_bold,
+    fontSize: 27,
+    textAlign: 'center',
+    marginBottom: 20,
+    color: theme.text,
+  },
+  subtitle: {
+    fontSize: 20,
+    fontFamily: theme.font_regular,
+    marginBottom: 30,
+    textAlign: 'justify',
+    color: theme.text,
+  },
+  line: {
+    height: 2,
+    width: '70%',
+    backgroundColor: theme.primary,
+    marginBottom: 36,
+    borderRadius: 4,
+  },
+  line_second: {
+    height: 15,
+    width: '100%',
+    backgroundColor: theme.light_primary,
+    marginBottom: 30,
+    borderRadius: 91,
+  },
+  entrar: {
+    fontFamily: theme.font_bold,
+    fontSize: 19,
+    textAlign: 'center',
+    marginBottom: 20,
+    color: theme.text,
+  },
+  content: {
+    backgroundColor: theme.light_grey,
+    borderRadius: 13,
+    padding: 20,
+    width: '100%',
+    borderWidth: 2,
+    borderColor: theme.primary,
+  },
+  text: {
+    fontFamily: theme.font_bold,
+    fontSize: 19,
+    textAlign: 'center',
+    marginBottom: 36,
+    color: theme.text,
+  },
+  button_second: {
+    backgroundColor: theme.dark_primary,
+    padding: 10,
+    height: 60,
+    borderRadius: 13,
+    marginBottom: 40,
+    width: '100%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    letterSpacing: 1.2,
+    color: 'white',
+    fontSize: 17,
+    fontFamily: theme.font_bold,
+  },
+  image: {
+    width: 40,
+    height: 40,
+    marginLeft: 10,
+    borderRadius: 25,
   },
 }));

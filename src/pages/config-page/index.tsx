@@ -1,15 +1,17 @@
 import { ScrollView, Text, View } from "react-native";
 import { FontSizeSlider } from "../../components/font-size-slider";
-import { PageTitle } from "../../components/page-tittle";
 import Button from "../../components/button";
-import { useThemeContext } from "../../context/theme/hooks/use-theme-context";
+import { useClerk } from "@clerk/clerk-expo";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { useSettingsContext } from "../../context/settings/settings-contex";
 import { ThemeNames } from "../../styles/theme";
 import { makeStyle } from "./style";
 import { Smartphone } from "lucide-react-native";
 
 export default function ConfigPage() {
-    const { theme } = useThemeContext();
+    const { signOut } = useClerk();
+    const navigation = useNavigation<StackNavigationProp<any>>();
     const { setConfig } = useSettingsContext();
     const style = makeStyle();
     return (
@@ -35,7 +37,6 @@ export default function ConfigPage() {
                     textStyle={style.highContrastButtonText}
                     wraperStyle={style.highContrastButton}
                 />
-
                 <Button text="Modo Claro"
                     onPress={() => setConfig<ThemeNames>("theme", "light")}
                     textStyle={style.lightModeButtonText}
@@ -51,6 +52,10 @@ export default function ConfigPage() {
                     text="Deslogar"
                     textStyle={style.buttonText}
                     wraperStyle={style.button}
+                    onPress={() => {
+                        signOut()
+                        navigation.reset({ index: 0, routes: [{ name: "home" }] });
+                    }}
                 />
 
                 <View style={style.footer}>
