@@ -9,7 +9,6 @@ import { ErrorPage } from "../../pages/error-page";
 
 export function Routes() {
 
-
   const Stack = createNativeStackNavigator();
   const { isSignedIn, isLoaded } = useAuth();
 

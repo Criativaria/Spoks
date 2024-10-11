@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useOAuth } from "@clerk/clerk-expo";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import * as Linking from 'expo-linking'
 WebBrowser.maybeCompleteAuthSession();
 
 export function GoogleLogin() {
@@ -22,7 +23,9 @@ export function GoogleLogin() {
     const OnGoogleSignInAsync = async () => {
         try {
             setIsLoadingLogin(true);
-            const { createdSessionId, setActive, authSessionResult } = await googleOAuth.startOAuthFlow();
+            const { createdSessionId, setActive, authSessionResult } = await googleOAuth.startOAuthFlow({
+                redirectUrl: Linking.createURL('/oauth-native-callback')
+            });
 
             if (authSessionResult?.type === "success" && createdSessionId) {
 

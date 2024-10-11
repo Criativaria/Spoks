@@ -2,7 +2,7 @@ import { ThemeProvider } from "./context/theme/theme.provider";
 import { StatusBar } from "expo-status-bar";
 import { useFont } from "./hooks/use-font";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { ClerkProvider } from "@clerk/clerk-expo";
+import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import { Routes } from "./utils/routes/routes";
 import { tokenCache } from "./api/user/token-cache";
 import { StorageProvider } from "./context/storage/storage-context";
@@ -24,14 +24,16 @@ export function App() {
     <ErrorBoundary FallbackComponent={ErrorPage}>
       <SafeAreaProvider>
         <ClerkProvider publishableKey={PUBLISHABLE_KEY} tokenCache={tokenCache}>
-          <StorageProvider>
-            <SettingsProvider>
-              <ThemeProvider>
-                <StatusBar style="dark" />
-                <Routes />
-              </ThemeProvider>
-            </SettingsProvider>
-          </StorageProvider>
+          <ClerkLoaded>
+            <StorageProvider>
+              <SettingsProvider>
+                <ThemeProvider>
+                  <StatusBar style="dark" />
+                  <Routes />
+                </ThemeProvider>
+              </SettingsProvider>
+            </StorageProvider>
+          </ClerkLoaded>
         </ClerkProvider>
       </SafeAreaProvider>
     </ErrorBoundary>
