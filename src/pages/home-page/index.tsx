@@ -8,7 +8,7 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export function HomePage() {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const { OnGoogleSignInAsync, isLoadingLogin } = GoogleLogin()
+  const { OnGoogleSignInAsync, isLoadingLogin } = GoogleLogin();
   const style = makeStyle();
 
   return (
