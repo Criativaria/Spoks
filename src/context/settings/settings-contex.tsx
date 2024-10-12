@@ -34,8 +34,8 @@ export function SettingsProvider(prop: SettingsProviderProps) {
 
     const setConfig = <T,>(key: string, value: T) => {
         setConfigs((config) => Object.assign({}, config, { [key]: value }));
-
     }
+
     const getConfig = <T,>(key: string, defaultValue: T) => {
         return configs[key] ?? defaultValue;
     }

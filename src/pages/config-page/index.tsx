@@ -41,12 +41,12 @@ export default function ConfigPage() {
                     onPress={() => setConfig<ThemeNames>("theme", "light")}
                     textStyle={style.lightModeButtonText}
                     wraperStyle={style.lightModeButton} />
-
+                {/* 
                 <Button
                     text="Configurar Depois"
                     textStyle={style.buttonText}
                     wraperStyle={style.button}
-                />
+                /> */}
 
                 <Button
                     text="Deslogar"
