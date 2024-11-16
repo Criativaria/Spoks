@@ -1,14 +1,14 @@
 {
   "expo": {
     "name": "Spoks",
+    "scheme": "spoks",
     "slug": "Spoks",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/spoks-icon.png",
     "userInterfaceStyle": "light",
-    "entryPoint": "./src/main.tsx",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/spoks-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -16,10 +16,7 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "ally.spoks"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -27,7 +24,11 @@
     "plugins": [
       "expo-font",
       "expo-secure-store"
-    ]
-    
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "53366c08-a827-4327-a9ca-bba51eb6ae69"
+      }
+    }
   }
 }

@@ -1,0 +1,37 @@
+{
+  "cli": {
+    "version": ">= 12.5.2",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_ENV": "production",
+        "EXPO_PUBLIC_API_URL": "https://spoks-service.fly.dev",
+        "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY":"pk_live_Y2xlcmsuc3Bva3MuYnltYXJpYS5ieWFydGh1ci5tZSQ"
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_ENV": "production",
+        "EXPO_PUBLIC_API_URL": "https://spoks-service.fly.dev",
+        "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY":"pk_live_Y2xlcmsuc3Bva3MuYnltYXJpYS5ieWFydGh1ci5tZSQ"
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    },    
+    "production": {
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

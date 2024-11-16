@@ -9,6 +9,7 @@ import { StorageProvider } from "./context/storage/storage-context";
 import { SettingsProvider } from "./context/settings/settings-contex";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorPage } from "./pages/error-page";
+import { AccountPage } from "./pages/account-page";
 
 const PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY as string;
 
@@ -21,21 +22,21 @@ export function App() {
   }
 
   return (
-    <ErrorBoundary FallbackComponent={ErrorPage}>
-      <SafeAreaProvider>
-        <ClerkProvider publishableKey={PUBLISHABLE_KEY} tokenCache={tokenCache}>
-          <ClerkLoaded>
-            <StorageProvider>
-              <SettingsProvider>
-                <ThemeProvider>
+    <SafeAreaProvider>
+      <ClerkProvider publishableKey={PUBLISHABLE_KEY} tokenCache={tokenCache}>
+        <ClerkLoaded>
+          <StorageProvider>
+            <SettingsProvider>
+              <ThemeProvider>
+                <ErrorBoundary FallbackComponent={ErrorPage}>
                   <StatusBar style="dark" />
                   <Routes />
-                </ThemeProvider>
-              </SettingsProvider>
-            </StorageProvider>
-          </ClerkLoaded>
-        </ClerkProvider>
-      </SafeAreaProvider>
-    </ErrorBoundary>
+                </ErrorBoundary>
+              </ThemeProvider>
+            </SettingsProvider>
+          </StorageProvider>
+        </ClerkLoaded>
+      </ClerkProvider>
+    </SafeAreaProvider>
   );
 }

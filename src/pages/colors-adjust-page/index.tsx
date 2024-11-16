@@ -9,7 +9,7 @@ import { ThemeNames } from "../../styles/theme";
 import { makeStyle } from "./style";
 import { Smartphone } from "lucide-react-native";
 
-export default function ConfigPage() {
+export default function ColorsAdjustPage() {
     const { signOut } = useClerk();
     const navigation = useNavigation<StackNavigationProp<any>>();
     const { setConfig } = useSettingsContext();
@@ -18,14 +18,11 @@ export default function ConfigPage() {
         <ScrollView style={style.scroll}>
 
             <View style={style.container}>
-                <Text style={style.title}>Configurações</Text>
+                <Text style={style.title}>Configurações Iniciais de acessibilidade</Text>
 
-                <FontSizeSlider />
+                <Text style={style.label}>ajustes de cor</Text>
 
-                <View style={style.modeRow}>
-                    <Smartphone style={style.icon} />
-                    <Text style={style.label}>Modo</Text>
-                </View>
+                <Text style={style.label}>configurar depois?</Text>
 
                 <Button text="Modo Escuro"
                     onPress={() => setConfig<ThemeNames>("theme", "dark")}
@@ -42,21 +39,11 @@ export default function ConfigPage() {
                     textStyle={style.lightModeButtonText}
                     wraperStyle={style.lightModeButton} />
 
-                <Button
-                    text="Sair"
-                    textStyle={style.buttonText}
-                    wraperStyle={style.button}
-                    onPress={() => {
-                        signOut()
-                        navigation.reset({ index: 0, routes: [{ name: "home" }] });
-                    }}
-                />
                 <View style={style.footer}>
-                    <Text style={style.footerText}>Clique para voltar para o aplicativo</Text>
-                    <View style={style.line} />
 
-                    <Button text="Voltar"
-                        onPress={navigation.goBack}
+                    <Button text="voltar" onPress={() => navigation.goBack()} />
+                    <Button text="próximo"
+                        onPress={() => navigation.navigate("account")}
                         textStyle={style.buttonText}
                         wraperStyle={style.button}
                     />

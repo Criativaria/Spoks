@@ -24,7 +24,7 @@ export function GoogleLogin() {
         try {
             setIsLoadingLogin(true);
             const { createdSessionId, setActive, authSessionResult } = await googleOAuth.startOAuthFlow({
-                redirectUrl: Linking.createURL('/oauth-native-callback')
+                redirectUrl: Linking.createURL('channel')
             });
 
             if (authSessionResult?.type === "success" && createdSessionId) {

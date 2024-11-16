@@ -1,13 +1,15 @@
-import { useErrorBoundary } from "react-error-boundary";
+import { FallbackProps, useErrorBoundary } from "react-error-boundary";
 import { Text, TouchableOpacity, View } from "react-native";
 import { makeStyle } from "./style";
 import { useThemeContext } from "../../context/theme/hooks/use-theme-context";
 import { WifiOff } from "lucide-react-native";
 
-export function ErrorPage() {
+export function ErrorPage(props: FallbackProps) {
     const { resetBoundary } = useErrorBoundary()
     const { theme } = useThemeContext();
     const style = makeStyle();
+
+    console.error("error:", props.error);
 
     return (
         <View style={style.container}>

@@ -5,7 +5,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "@clerk/clerk-expo";
 import ConfigPage from "../../pages/config-page";
 import { HomePage } from "../../pages/home-page";
-import { ErrorPage } from "../../pages/error-page";
+import { AccountPage } from "../../pages/account-page";
+import * as Linking from 'expo-linking';
+import TextAdjustPage from "../../pages/text-adjust-page";
+import ColorsAdjustPage from "../../pages/colors-adjust-page";
+
+const prefix = Linking.createURL("/")
 
 export function Routes() {
 
@@ -15,7 +20,7 @@ export function Routes() {
   if (!isLoaded) return;
 
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={{ prefixes: [prefix] }}>
       <Stack.Navigator initialRouteName={isSignedIn ? "channel" : "home"}>
         <Stack.Screen
           name="channel"
@@ -38,8 +43,18 @@ export function Routes() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="error"
-          component={ErrorPage}
+          name="account"
+          component={AccountPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="text"
+          component={TextAdjustPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="colors"
+          component={ColorsAdjustPage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
