@@ -7,7 +7,6 @@ export const makeStyle = CreateStyle((theme) => ({
         alignItems: 'center',
         backgroundColor: theme.background_color,
         padding: 20,
-        borderWidth: 2,
     },
     scroll: {
         backgroundColor: theme.background_color,
@@ -15,6 +14,7 @@ export const makeStyle = CreateStyle((theme) => ({
     title: {
         fontSize: theme.fontSize * 30,
         fontFamily: theme.font_bold,
+        marginTop: 20,
         marginBottom: 40,
         color: theme.text,
     },
@@ -36,14 +36,13 @@ export const makeStyle = CreateStyle((theme) => ({
         color: theme.text,
     },
     label: {
-        fontSize: theme.fontSize * 17,
+        fontSize: theme.fontSize * 18,
         fontFamily: theme.font_bold,
         color: theme.text,
     },
     buttonText: {
         textAlign: 'center',
         color: theme.text_white,
-
     },
     // Estilos específicos para os botões
     darkModeButton: {
@@ -72,7 +71,7 @@ export const makeStyle = CreateStyle((theme) => ({
         fontSize: theme.fontSize * 19,
         fontFamily: theme.font_bold,
     },
-    lightModeButtonText: { // Estilo do texto do botão de Modo Claro
+    lightModeButtonText: {
         color: "#000000",
         fontSize: theme.fontSize * 19,
         fontFamily: theme.font_bold,
@@ -82,6 +81,7 @@ export const makeStyle = CreateStyle((theme) => ({
         color: theme.high_contrast_button_text,
         fontSize: theme.fontSize * 19,
         fontFamily: theme.font_bold,
+        textAlign: 'center',
     },
     line: {
         height: 2,
@@ -106,5 +106,6 @@ export const makeStyle = CreateStyle((theme) => ({
         letterSpacing: 1.2,
         fontFamily: theme.font_bold,
         color: theme.text,
+        textAlign: 'center',
     }
 }));

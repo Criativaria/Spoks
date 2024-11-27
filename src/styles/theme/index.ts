@@ -19,6 +19,7 @@ export type ThemeData = {
     background_color_dark: string,
     dark_mode_button_text: string;
     high_contrast_button_text: string;
+    text_button_modal: string;
 };
 
 const lightTheme: ThemeData = {
@@ -42,6 +43,7 @@ const lightTheme: ThemeData = {
     font_regular: "Inter_Regular",
     dark_mode_button_text: "#FFFFFF",
     high_contrast_button_text: "#FFFF00",
+    text_button_modal: "#FFFFFF",
 };
 
 const darkTheme: ThemeData = {
@@ -65,6 +67,7 @@ const darkTheme: ThemeData = {
     font_regular: "Inter_Regular",
     dark_mode_button_text: "#FFFFFF",
     high_contrast_button_text: "#FFFF00",
+    text_button_modal: "#FFFFFF",
 };
 
 const highContrastTheme: ThemeData = {
@@ -88,6 +91,7 @@ const highContrastTheme: ThemeData = {
     font_regular: "Inter_Regular",
     dark_mode_button_text: "#FFFFFF",
     high_contrast_button_text: "#FFFF00",
+    text_button_modal: "#000000",
 };
 
 export const themes = {

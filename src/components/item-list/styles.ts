@@ -9,7 +9,7 @@ export const makeStyle = CreateStyle((theme) => ({
         borderStyle: "solid",
         borderBlockColor: theme.primary,
         borderBottomWidth: 1,
-        height: 100,
+        height: 130,
         padding: 4,
         backgroundColor: theme.light_grey,
     },
@@ -25,8 +25,10 @@ export const makeStyle = CreateStyle((theme) => ({
         letterSpacing: 1.2,
         width: 260,
         color: theme.text,
+        marginBottom: 10,
     },
     textWrapper: {
-        width: "80%",
+        marginTop: 10,
+        width: "85%",
     }
 }));

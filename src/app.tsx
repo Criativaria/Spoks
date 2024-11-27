@@ -9,7 +9,8 @@ import { StorageProvider } from "./context/storage/storage-context";
 import { SettingsProvider } from "./context/settings/settings-contex";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorPage } from "./pages/error-page";
-import { AccountPage } from "./pages/account-page";
+import TextAdjustPage from "./pages/text-adjust-page";
+
 
 const PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY as string;
 

@@ -2,13 +2,14 @@ import { CreateStyle } from "../../utils/create-style";
 
 export const makeStyle = CreateStyle((theme) => ({
     wrapper: {
-        width: "90%",
-        height: 60,
+        width: "85%",
+        height: 72,
         backgroundColor: theme.dark_primary,
-        borderRadius: 8,
+        borderRadius: 13,
         marginBottom: 20,
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 1,
     },
     text: {
         color: theme.text,

@@ -7,7 +7,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { useSettingsContext } from "../../context/settings/settings-contex";
 import { ThemeNames } from "../../styles/theme";
 import { makeStyle } from "./style";
-import { Smartphone } from "lucide-react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TextAdjustPage() {
     const { signOut } = useClerk();
@@ -16,27 +16,26 @@ export default function TextAdjustPage() {
     const style = makeStyle();
     return (
         <ScrollView style={style.scroll}>
-
             <View style={style.container}>
                 <Text style={style.title}>Configurações Iniciais de acessibilidade</Text>
-
-
-                <Text style={style.label}>ajuste de texto</Text>
-
-                <Text style={style.label}>configurar depois?</Text>
-
+                <Text style={style.label}>Ajuste de texto</Text>
+                <View style={style.line} />
+                <Text style={style.second_label}>Configurar depois ?</Text>
 
                 <FontSizeSlider />
 
-                <Button text="voltar" onPress={() => navigation.goBack()} />
-                <Button text="proximo"
+                <Text style={style.config_text}>O texto ficará assim</Text>
+
+                {/*<Button text="Voltar" onPress={() => navigation.goBack()} 
+                    textStyle={style.buttonText}
+                    wraperStyle={style.button}*/}
+
+                <Button text="Próximo"
                     onPress={() => navigation.navigate("colors")}
                     textStyle={style.buttonText}
                     wraperStyle={style.button}
                 />
             </View>
-
         </ScrollView>
     )
-
 }

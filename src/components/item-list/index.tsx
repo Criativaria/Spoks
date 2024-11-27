@@ -16,6 +16,13 @@ type ResumeTextType = {
   limit: number;
 };
 
+const truncateText = (text: string, limit: number) => {
+  if (text.length > limit) {
+    return text.substring(0, limit) + "...";
+  }
+  return text;
+};
+
 export function ItemList({
   title,
   desc,
@@ -26,17 +33,18 @@ export function ItemList({
   const style = makeStyle();
   const { theme } = useThemeContext();
 
-
+  const truncatedTitle = truncateText(title, 55);  // Limite de caracteres para o título
+  const truncatedDesc = truncateText(desc, 30);    // Limite de caracteres para a descrição
 
   return (
     <View style={style.wrapper}>
       <Pressable onPress={onClick}>
         <View style={style.textWrapper}>
           <Text style={style.tittle}>
-            {title}
+            {truncatedTitle}
           </Text>
           <Text style={style.desc}>
-            {desc}
+            {truncatedDesc}
           </Text>
         </View>
       </Pressable>
@@ -44,7 +52,7 @@ export function ItemList({
         <Heart
           color={isFavorite ? theme.primary : theme.text}
           strokeWidth={2}
-          size={21}
+          size={25}
           fill={isFavorite ? theme.primary : theme.light_grey}
         />
       </Pressable>

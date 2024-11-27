@@ -48,11 +48,11 @@ export default function ConfigPage() {
                     wraperStyle={style.button}
                     onPress={() => {
                         signOut()
-                        navigation.reset({ index: 0, routes: [{ name: "home" }] });
+                        navigation.reset({ index: 0, routes: [{ name: "account" }] });
                     }}
                 />
                 <View style={style.footer}>
-                    <Text style={style.footerText}>Clique para voltar para o aplicativo</Text>
+                    <Text style={style.footerText}>Clique no botão para voltar para o aplicativo</Text>
                     <View style={style.line} />
 
                     <Button text="Voltar"

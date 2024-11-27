@@ -10,20 +10,20 @@ export function FontSizeSlider() {
     const fontSize = configs.getConfig("fontSize", 1);
     const style = makeStyle();
 
-    return (
-        <View style={style.container}>
-            <Text style={style.title} >Definir tamanho da fonte</Text>
-            <Text style={style.subTitle} >Arraste para ajustar o tamanho</Text>
-            <Slider
-                style={{ width: 225, height: 40 }}
-                minimumValue={0.75}
-                maximumValue={1.25}
-                minimumTrackTintColor={theme.primary}
-                maximumTrackTintColor={theme.black}
-                value={fontSize}
-                thumbTintColor={theme.primary}
-                onValueChange={(value) => configs.setConfig("fontSize", value)}
-            />
-        </View >
-    )
-}
+        return (
+            <View style={style.container}>
+                <Text style={style.title}>Definir tamanho da fonte</Text>
+                <Text style={style.subTitle}>Arraste para ajustar o tamanho</Text>
+                <Slider
+                    style={style.slider}
+                    minimumValue={0.75}
+                    maximumValue={1.25}
+                    minimumTrackTintColor={theme.primary}
+                    maximumTrackTintColor={theme.black}
+                    value={fontSize}
+                    thumbTintColor={theme.primary}
+                    onValueChange={(value) => configs.setConfig("fontSize", value)}
+                />
+            </View>
+        );
+    }

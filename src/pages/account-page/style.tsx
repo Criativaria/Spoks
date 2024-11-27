@@ -41,7 +41,7 @@ export const makeStyle = CreateStyle((theme) => ({
   },
   entrar: {
     fontFamily: theme.font_bold,
-    fontSize: 19,
+    fontSize: 24,
     textAlign: 'center',
     marginBottom: 20,
     color: theme.text,

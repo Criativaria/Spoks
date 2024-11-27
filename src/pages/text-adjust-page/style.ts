@@ -7,104 +7,55 @@ export const makeStyle = CreateStyle((theme) => ({
         alignItems: 'center',
         backgroundColor: theme.background_color,
         padding: 20,
-        borderWidth: 2,
     },
     scroll: {
         backgroundColor: theme.background_color,
     },
     title: {
-        fontSize: theme.fontSize * 30,
+        fontSize: theme.fontSize * 27,
         fontFamily: theme.font_bold,
-        marginBottom: 40,
+        marginTop: 30,
+        textAlign: 'center',
+        marginBottom: 50,
         color: theme.text,
     },
-    content: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '90%',
-    },
-    modeRow: {
-        marginTop: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 30,
-        alignSelf: 'flex-start',
-        marginLeft: 15,
-    },
-    icon: {
-        marginRight: 10,
+    config_text: {
         color: theme.text,
+        fontSize: theme.fontSize * 19,
+        marginTop: 20,
+        marginBottom: 20,
     },
     label: {
-        fontSize: theme.fontSize * 17,
+        fontSize: theme.fontSize * 19,
         fontFamily: theme.font_bold,
         color: theme.text,
+        width: 200,
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    second_label: {
+        fontSize: theme.fontSize * 19,
+        fontFamily: theme.font_bold,
+        color: theme.text,
+        width: 500,
+        textAlign: 'center',
+        marginBottom: 60,
     },
     buttonText: {
         textAlign: 'center',
         color: theme.text_white,
-
-    },
-    // Estilos específicos para os botões
-    darkModeButton: {
-        backgroundColor: theme.black,
-        borderWidth: 1,
-        borderColor: "#FFFFFF",
-        color: theme.text_white,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    lightModeButton: {
-        backgroundColor: "#E8E8E8",
-        color: theme.text_white,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    highContrastButton: {
-        backgroundColor: 'black',
-        color: theme.text,
-        borderWidth: 2,
-        borderColor: 'white',
-    },
-    // Estilos de texto para cada botão
-    darkModeButtonText: {
-        color: theme.dark_mode_button_text,
-        fontSize: theme.fontSize * 19,
-        fontFamily: theme.font_bold,
-    },
-    lightModeButtonText: { // Estilo do texto do botão de Modo Claro
-        color: "#000000",
-        fontSize: theme.fontSize * 19,
-        fontFamily: theme.font_bold,
-
-    },
-    highContrastButtonText: {
-        color: theme.high_contrast_button_text,
-        fontSize: theme.fontSize * 19,
-        fontFamily: theme.font_bold,
     },
     line: {
-        height: 2,
-        width: '80%',
-        backgroundColor: theme.primary,
-        marginBottom: 36,
+        height: 3,
+        width: '45%',
+        backgroundColor: theme.light_primary,
+        marginBottom: 45,
         borderRadius: 4,
     },
-    footer: {
-        marginTop: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '90%',
-    },
     button: {
+        marginTop: 20,
+        marginBottom: 10,
         borderWidth: 2,
         borderColor: theme.border_button_config,
     },
-    footerText: {
-        fontSize: theme.fontSize * 18,
-        marginBottom: 20,
-        letterSpacing: 1.2,
-        fontFamily: theme.font_bold,
-        color: theme.text,
-    }
 }));

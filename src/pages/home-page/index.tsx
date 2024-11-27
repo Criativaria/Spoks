@@ -16,11 +16,15 @@ export function HomePage() {
       <View style={style.innerContainer}>
         <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Text style={style.title}>Boas Vindas ao Spoks</Text>
+          <View style={style.line} />
+
           <Text style={style.subtitle}>Ative o TalkBack no seu dispositivo para navegar e utilizar o app com acessibilidade.</Text>
 
-
-          <Button text="proximo" onPress={() => navigation.navigate("text")} />
-
+          <Button text="Próximo"
+                    onPress={() => navigation.navigate("text")}
+                    textStyle={style.buttonText}
+                    wraperStyle={style.button}
+                />
         </ScrollView>
       </View>
     </SafeAreaView>
